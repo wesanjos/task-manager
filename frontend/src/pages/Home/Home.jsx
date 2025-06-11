@@ -1,7 +1,9 @@
+import TaskBoardTemplate from "../../components/templates/TaskBoardTemplate";
+
 export default function Home() {
   return (
     <main role="main">
-      <h1>Home Page</h1>
+      <TaskBoardTemplate />
     </main>
   );
 }
