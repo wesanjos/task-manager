@@ -1,4 +1,4 @@
-import TaskBoardTemplate from "../../components/templates/TaskBoardTemplate";
+import TaskBoardTemplate from '../../components/templates/TaskBoardTemplate';
 
 export default function Home() {
   return (

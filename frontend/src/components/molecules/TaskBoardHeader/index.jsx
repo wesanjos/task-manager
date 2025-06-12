@@ -1,5 +1,4 @@
 import Text from '../../atoms/Text';
-import AddTask from '../../molecules/AddTask';
 
 export default function TaskBoardHeader({ title }) {
   return (
@@ -7,7 +6,6 @@ export default function TaskBoardHeader({ title }) {
       <Text variant="h5" tag="h1" fontWeight="bold" sx={{ my: 3 }}>
         {title}
       </Text>
-      {/* <AddTask /> */}
     </div>
   );
 }

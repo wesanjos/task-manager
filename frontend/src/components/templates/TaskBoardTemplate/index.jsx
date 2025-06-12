@@ -1,10 +1,69 @@
+import { useEffect, useState, useCallback } from 'react';
+
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import TaskList from '../../organisms/TaskList';
 import TaskBoardHeader from '../../molecules/TaskBoardHeader';
+import TaskBoardGrid from '../../molecules/TaskBoardGrid';
+import Loading from '../../molecules/Loading';
+import AlertMessage from '../../atoms/Alert';
+
+import api from '../../../api';
 
 export default function TaskBoardTemplate() {
+  const [tasksByStatus, setTasksByStatus] = useState({
+    todo: [],
+    doing: [],
+    done: [],
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchTasks = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await api.get('/get-tasks');
+      const data = await response.data;
+
+      const groupedTasks = {
+        todo: [],
+        doing: [],
+        done: [],
+      };
+
+      if (!data) {
+        setTasksByStatus(groupedTasks);
+        return;
+      }
+
+      data.forEach(task => {
+        const status = task.status || 'todo';
+        if (groupedTasks[status]) {
+          groupedTasks[status].push({
+            ...task,
+            type: status,
+          });
+        }
+      });
+
+      setTasksByStatus(groupedTasks);
+    } catch (err) {
+      console.error('Erro ao buscar tarefas:', err);
+      setError('Falha ao carregar as tarefas!');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const refreshTasks = useCallback(() => {
+    fetchTasks();
+  }, [fetchTasks]);
+
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
+
   return (
     <Box
       sx={{
@@ -17,26 +76,17 @@ export default function TaskBoardTemplate() {
     >
       <Container maxWidth="lg">
         <TaskBoardHeader title="Gerenciador de Tarefas" />
-        <Grid
-          container
-          direction="row"
-          rowSpacing={1}
-          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          sx={{
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <Grid item size={4}>
-            <TaskList type="todo" title="To Do" />
-          </Grid>
-          <Grid item size={4}>
-            <TaskList type="doing" title="Doing" />
-          </Grid>
-          <Grid item size={4}>
-            <TaskList type="done" title="Done" />
-          </Grid>
-        </Grid>
+
+        {error && <AlertMessage message={error} severity="error" />}
+
+        {loading ? (
+          <Loading message="Carregando as tarefas..." />
+        ) : (
+          <TaskBoardGrid
+            tasksByStatus={tasksByStatus}
+            refreshTasks={refreshTasks}
+          />
+        )}
       </Container>
     </Box>
   );
