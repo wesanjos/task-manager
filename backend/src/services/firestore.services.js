@@ -16,7 +16,7 @@ async function getTasksCount() {
 async function handleGetTasks() {
   try {
     const collection = db.collection('tasks');
-    const getTasks = await collection.get();
+    const getTasks = await collection.orderBy('createdAt', 'desc').get();
 
     if (getTasks.empty) {
       return [];
@@ -55,7 +55,8 @@ async function handleInsertTask(tasks) {
         ...task,
         computer,
         id: taskId,
-        internalId: taskNumber
+        internalId: taskNumber,
+        createdAt: new Date().toISOString()
       });
 
       results.push({
