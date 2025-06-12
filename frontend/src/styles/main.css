@@ -1,11 +1,10 @@
-@import 'base/reset.css';
+/* @import 'base/reset.css'; */
 
 .task-list {
   display: flex;
   flex-direction: column;
   width: 100%;
   min-width: 320px;
-  /* background: mediumslateblue; */
 
   &.--todo {
     .list-header {
@@ -61,7 +60,6 @@
 
 .task-card {
   .item {
-    /* background: maroon; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
