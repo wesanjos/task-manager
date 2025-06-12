@@ -19,9 +19,36 @@ task-manager/
 - Node.js >= 20.0.0
 - npm (geralmente instalado com o Node.js)
 
-## 📁 Guia de Acesso aos Diretórios
+## 📁 Guia de Acesso
 
-Para iniciar os serviços, acesse os diretórios `backend` e `frontend`. As instruções completas estão disponíveis no arquivo README.
+> [!NOTE]
+> Faça a inicialização do backend e frontend para que o sistema funcione corretamente. Não esqueça de configurar o firebase no backend.
+
+Dentro de cada diretório você encontrará um arquivo README.md com as instruções de como iniciar o serviço.
+
+### Clonagem do repositório
+
+Siga os passos abaixo para iniciar os serviços:
+
+```bash
+git clone https://github.com/wess/task-manager.git
+
+cd task-manager
+```
+
+### Backend
+```
+cd backend
+
+-> Siga as instruções do README.md para inicializar o backend.
+```
+
+### Frontend
+```
+cd frontend
+
+-> Siga as instruções do README.md para inicializar o frontend.
+```
 
 ## 📡 API Endpoints
 

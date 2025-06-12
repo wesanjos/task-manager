@@ -34,7 +34,7 @@ node -v # Deve ser >= 20.0.0
 
 ```bash
 # Clonar o repositório
-git clone <url-backend>
+git clone https://github.com/wess/task-manager.git
 
 # Entrar na pasta do backend
 cd backend
