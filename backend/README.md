@@ -52,7 +52,13 @@ npm install
 
 Para agilizar esse processo, está disponível no Google Drive, basta fazer o download do arquivo, descompactá-lo e coloca-lo na pasta `src/config`.
 
-- [serviceAccountKey.json](https://drive.google.com/file/d/1DrCcS2FGNhbrhdjCZ8uiozfpzqwcggfJ/view?usp=sharing) - Arquivo temporário
+- [serviceAccountKey.json](https://drive.google.com/file/d/1DrCcS2FGNhbrhdjCZ8uiozfpzqwcggfJ/view?usp=sharing) *Arquivo temporário*
+
+
+#### ℹ️ Configuração individual
+
+- Caso deseje utilizar um Firestore próprio, é necessário que a coleção seja nomeada como `tasks` para que funcione corretamente com este projeto.
+
 
 ## 🚀 Iniciando o projeto
 
