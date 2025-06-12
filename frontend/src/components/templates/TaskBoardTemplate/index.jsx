@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import TaskBoardHeader from '../../molecules/TaskBoardHeader';
 import TaskBoardGrid from '../../molecules/TaskBoardGrid';
-import Loading from '../../molecules/Loading';
 import AlertMessage from '../../atoms/Alert';
 
 import api from '../../../api';
@@ -15,11 +14,9 @@ export default function TaskBoardTemplate() {
     doing: [],
     done: [],
   });
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const fetchTasks = useCallback(async () => {
-    setLoading(true);
     setError(null);
 
     try {
@@ -51,8 +48,6 @@ export default function TaskBoardTemplate() {
     } catch (err) {
       console.error('Erro ao buscar tarefas:', err);
       setError('Falha ao carregar as tarefas!');
-    } finally {
-      setLoading(false);
     }
   }, []);
 
@@ -79,14 +74,10 @@ export default function TaskBoardTemplate() {
 
         {error && <AlertMessage message={error} severity="error" />}
 
-        {loading ? (
-          <Loading message="Carregando as tarefas..." />
-        ) : (
-          <TaskBoardGrid
-            tasksByStatus={tasksByStatus}
-            refreshTasks={refreshTasks}
-          />
-        )}
+        <TaskBoardGrid
+          tasksByStatus={tasksByStatus}
+          refreshTasks={refreshTasks}
+        />
       </Container>
     </Box>
   );
