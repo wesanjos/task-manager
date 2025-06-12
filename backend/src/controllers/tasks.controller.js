@@ -27,8 +27,6 @@ async function getTasks(req, res) {
 
 async function insertTask(req, res) {
   try {
-    console.log('Insert Task');
-
     const task = req.body;
 
     const newTask = await service.handleInsertTask(task);
