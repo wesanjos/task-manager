@@ -6,14 +6,13 @@ export default function TaskBoardGrid({ tasksByStatus, refreshTasks }) {
     <Grid
       container
       direction="row"
-      rowSpacing={1}
-      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+      spacing={2}
       sx={{
         justifyContent: 'space-between',
         alignItems: 'flex-start',
       }}
     >
-      <Grid size={{ xs: 12, sm: 4 }}>
+      <Grid size={{ xs: 12, md: 6, lg: 4 }}>
         <TaskList
           type="todo"
           title="To Do"
@@ -21,7 +20,7 @@ export default function TaskBoardGrid({ tasksByStatus, refreshTasks }) {
           refreshTasks={refreshTasks}
         />
       </Grid>
-      <Grid size={{ xs: 12, sm: 4 }}>
+      <Grid size={{ xs: 12, md: 6, lg: 4 }}>
         <TaskList
           type="doing"
           title="Doing"
@@ -29,7 +28,7 @@ export default function TaskBoardGrid({ tasksByStatus, refreshTasks }) {
           refreshTasks={refreshTasks}
         />
       </Grid>
-      <Grid size={{ xs: 12, sm: 4 }}>
+      <Grid size={{ xs: 12, md: 6, lg: 4 }}>
         <TaskList
           type="done"
           title="Done"
