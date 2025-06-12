@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import TaskBoardHeader from '../../molecules/TaskBoardHeader';
-import TaskBoardGrid from '../../molecules/TaskBoardGrid';
+import TaskBoardGrid from '../../organisms/TaskBoardGrid';
 import AlertMessage from '../../atoms/Alert';
 
 import api from '../../../api';

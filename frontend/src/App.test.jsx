@@ -6,6 +6,6 @@ describe('App', () => {
   it('renders the App component', () => {
     render(<App />);
 
-    screen.debug();
+    screen.getByText('Gerenciador de Tarefas');
   });
 });

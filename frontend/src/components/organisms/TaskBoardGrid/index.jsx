@@ -1,5 +1,5 @@
 import Grid from '@mui/material/Grid';
-import TaskList from '../../organisms/TaskList';
+import TaskList from '../TaskList';
 
 export default function TaskBoardGrid({ tasksByStatus, refreshTasks }) {
   return (
@@ -13,7 +13,7 @@ export default function TaskBoardGrid({ tasksByStatus, refreshTasks }) {
         alignItems: 'flex-start',
       }}
     >
-      <Grid item xs={12} sm={4}>
+      <Grid size={{ xs: 12, sm: 4 }}>
         <TaskList
           type="todo"
           title="To Do"
@@ -21,7 +21,7 @@ export default function TaskBoardGrid({ tasksByStatus, refreshTasks }) {
           refreshTasks={refreshTasks}
         />
       </Grid>
-      <Grid item xs={12} sm={4}>
+      <Grid size={{ xs: 12, sm: 4 }}>
         <TaskList
           type="doing"
           title="Doing"
@@ -29,7 +29,7 @@ export default function TaskBoardGrid({ tasksByStatus, refreshTasks }) {
           refreshTasks={refreshTasks}
         />
       </Grid>
-      <Grid item xs={12} sm={4}>
+      <Grid size={{ xs: 12, sm: 4 }}>
         <TaskList
           type="done"
           title="Done"
