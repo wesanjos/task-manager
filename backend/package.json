@@ -6,6 +6,9 @@
     "dev": "nodemon src/server/index.js",
     "start": "node src/server/index.js"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
