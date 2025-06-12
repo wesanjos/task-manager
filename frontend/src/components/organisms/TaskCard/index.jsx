@@ -31,17 +31,17 @@ export default function TaskCard({
         <List className="task-card__list" disablePadding>
           <TaskInfoItem
             icon={<PermIdentityOutlinedIcon sx={{ fontSize: 24 }} />}
-            text={responsible}
+            text={responsible ? responsible : 'Não informado'}
           />
           <TaskInfoItem
             icon={<DesktopWindowsOutlinedIcon sx={{ fontSize: 24 }} />}
-            text={computer}
+            text={computer ? computer : 'Sem informação'}
           />
           <TaskInfoItem
             icon={
               <DateRangeOutlinedIcon sx={{ fontSize: 24, color: '#808080' }} />
             }
-            text={createdAt ? formattedDate : 'Sem informaç̧ão'}
+            text={createdAt ? formattedDate : 'Sem informação'}
             className="--date"
           />
         </List>
